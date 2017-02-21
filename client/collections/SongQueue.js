@@ -24,7 +24,6 @@ var SongQueue = Backbone.Collection.extend({
 
   dequeue: function() {
     var toRemove = this.models[0];
-    //backbone remove from collection
     this.remove(toRemove);
     if (this.models.length >= 1) {
       this.playFirst();
@@ -37,14 +36,9 @@ var SongQueue = Backbone.Collection.extend({
   //     this.models[0].play;
   //   }
   // }
-
-
-
   //
   //
   // removeFromQueue: function(song) {
   //   this.remove(song);
   // },
-
-
 });

@@ -31,7 +31,7 @@ describe('LibraryView', function() {
     expect(view.$el.children().length).to.equal(2);
     expect(view.$el.children()[0].tagName).to.equal('TH');
   });
-  
+
   xdescribe('when fetching song data from Parse', function() {
     var fakeResponse, requests, xhr;
 
@@ -40,6 +40,7 @@ describe('LibraryView', function() {
       xhr = sinon.useFakeXMLHttpRequest();
       xhr.onCreate = function(request) {
         requests.push(request);
+        console.log(requests);
       };
 
       fakeResponse = JSON.stringify({ results: fakeSongData });
@@ -52,8 +53,10 @@ describe('LibraryView', function() {
     it('should re-render with fetched songs', function() {
       var FakeLibraryView = LibraryView.extend({ render: sinon.spy() });
       view = new FakeLibraryView({ collection: new Songs() });
-      expect(view.render).to.have.been.calledOnce;
 
+
+      expect(view.render).to.have.been.calledOnce;
+      // debugger;
       requests[0].respond(200, { 'Content-Type': 'application/json' }, fakeResponse);
       expect(view.render).to.have.been.calledTwice;
     });
