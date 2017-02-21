@@ -19,6 +19,7 @@
     <script src="views/LibraryEntryView.js"></script>
     <script src="views/AppView.js"></script>
 
+    <!-- be careful the order of scripts running! -->
     <script>
       $(function() {
         // set up model objects
@@ -27,9 +28,12 @@
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
-
+          //need more views later????
+          //library view?
+          //song view?
         // put the view onto the screen
         $('body').append(appView.render());
+          //corresponding render for each view
       });
     </script>
   </body>
