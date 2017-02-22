@@ -7,7 +7,7 @@ var SongQueue = Backbone.Collection.extend({
     this.on('add', this.playInLine, this);
     this.on('ended', this.dequeue, this);
     this.on('dequeue', this.dequeue, this);
-
+    this.on('endSong', this.dequeue, this);
   },
 
   playInLine: function(song) {
@@ -26,5 +26,6 @@ var SongQueue = Backbone.Collection.extend({
     if (this.models.length >= 1) {
       this.playFirst();
     }
+    this.trigger('reRender', this);
   }
 });

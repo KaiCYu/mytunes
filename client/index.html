@@ -25,19 +25,11 @@
     <!-- be careful the order of scripts running! -->
     <script>
       $(function() {
-        // set up model objects
         var library = new Songs(songData);
-        // var songQueue  = new SongQueue();
         var app = new AppModel({library: library});
 
-        // build a view for the top level of the whole app
         var appView = new AppView({model: app});
-          //need more views later????
-          //library view?
-          //song view?
-        // put the view onto the screen
         $('body').append(appView.render());
-          //corresponding render for each view
       });
     </script>
   </body>
