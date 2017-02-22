@@ -8,6 +8,7 @@ var SongQueue = Backbone.Collection.extend({
     this.on('ended', this.dequeue, this);
     this.on('dequeue', this.dequeue, this);
     this.on('endSong', this.dequeue, this);
+
   },
 
   playInLine: function(song) {
